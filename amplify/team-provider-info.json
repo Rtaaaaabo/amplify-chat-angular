@@ -10,6 +10,11 @@
             "StackName": "amplify-testchat-dev-234747",
             "StackId": "arn:aws:cloudformation:ap-northeast-1:136164370018:stack/amplify-testchat-dev-234747/08c16260-c12a-11ea-bb5e-0ebe0d3228ae",
             "AmplifyAppId": "d1qpsd409mznga"
+        },
+        "categories": {
+            "auth": {
+                "testchatbf8c3b54": {}
+            }
         }
     }
 }

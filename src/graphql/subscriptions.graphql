@@ -1,0 +1,22 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateMessage {
+  onCreateMessage {
+    id
+    username
+    content
+  }
+}
+subscription OnUpdateMessage {
+  onUpdateMessage {
+    id
+    username
+    content
+  }
+}
+subscription OnDeleteMessage {
+  onDeleteMessage {
+    id
+    username
+    content
+  }
+}
