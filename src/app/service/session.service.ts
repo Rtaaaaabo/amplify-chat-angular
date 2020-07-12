@@ -15,6 +15,7 @@ export class SessionService {
     this.loggedIn = new BehaviorSubject<boolean>(false);
   }
 
+  // ユーザーがログインしているかしていないかをチェック
   isAuthenticated(): Observable<boolean> {
     return from(Auth.currentAuthenticatedUser()).pipe(
       tap(() => {
@@ -28,6 +29,7 @@ export class SessionService {
     );
   }
 
+  // 新規ユーザーの登録
   entryUserSignUp(value: InterfaceUser): Observable<any> {
     const username = value.userName;
     const email = value.email;
@@ -41,6 +43,7 @@ export class SessionService {
     }));
   }
 
+  // ユーザーのログイン処理
   signIn(email, password): Observable<any> {
     return from(Auth.signIn(email, password)).pipe(
       tap(() => this.loggedIn.next(true))
