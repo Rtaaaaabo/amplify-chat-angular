@@ -23,7 +23,7 @@ export class SignupPage implements OnInit {
   }
 
   onConfirmSignup() {
-    this.router.navigate(['/signup-confirm'])
+    this.router.navigate(['/signup-confirm']);
   }
 
 }
