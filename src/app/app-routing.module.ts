@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'confirm-signup',
-    loadChildren: () => import('./confirm-signup/confirm-signup.module').then( m => m.ConfirmSignupPageModule)
+    loadChildren: () => import('./confirm-signup/confirm-signup.module').then(m => m.ConfirmSignupPageModule)
   },
 ];
 
