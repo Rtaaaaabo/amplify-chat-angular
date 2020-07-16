@@ -19,7 +19,7 @@ export class SessionService {
   // ユーザーがログインしているかしていないかをチェック
   isAuthenticated(): Observable<boolean> {
     return from(Auth.currentAuthenticatedUser()).pipe(
-      tap(() => {
+      map(() => {
         this.loggedIn.next(true);
         return true;
       }),
@@ -39,9 +39,6 @@ export class SessionService {
     return from(Auth.signUp({
       username,
       password,
-      attributes: {
-        email: email,
-      }
     }));
   }
 

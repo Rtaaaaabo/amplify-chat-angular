@@ -33,7 +33,7 @@ export class ConfirmSignupPage implements OnInit {
     const valueNumber = this.confirmForm.value.confirmNumber;
     this.sessionService.confirmSignup(this.userName, valueNumber).subscribe((result) => {
       const query = { queryParams: { result: 'Success' } };
-      this.router.navigate(['/login'], query); /
+      this.router.navigate(['/login'], query);
     });
   }
 
