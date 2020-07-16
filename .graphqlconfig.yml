@@ -1,6 +1,6 @@
 projects:
   testchatforembrace:
-    schemaPath: src/graphql/schema.json
+    schemaPath: amplify/backend/api/testchatforembrace/build/schema.graphql
     includes:
       - src/graphql/**/*.graphql
     excludes:

@@ -53,4 +53,11 @@ export class SessionService {
   confirmSignup(userName, code): Observable<any> {
     return from(Auth.confirmSignUp(userName, code));
   }
+
+  signout() {
+    from(Auth.signOut()).subscribe(() => {
+      this.loggedIn.next(false);
+      this.router.navigate(['/login']);
+    });
+  }
 }

@@ -3,15 +3,20 @@
     <ion-title>
       Chat on Amplify
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onSignOut()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Chat</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container"></div>
+  <div id="container">
+    <div></div>
+    <div>
+      <p>Hello. How are you today?</p>
+      <span class="time-right">11:00</span>
+    </div>
+  </div>
 </ion-content>
