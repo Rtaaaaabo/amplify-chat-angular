@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { SessionService } from '../service/session.service';
-import { IonContent } from '@ionic/angular';
+import { IonContent, Platform } from '@ionic/angular';
 import { APIService } from '../../app/API.service';
 import { v4 as uuid } from 'uuid';
 
@@ -20,7 +20,10 @@ export class HomePage implements OnInit {
   constructor(
     private sessionService: SessionService,
     private apiService: APIService,
-  ) { }
+    private platform: Platform,
+  ) {
+    this.initializeApp();
+  }
 
   ngOnInit() {
     this.sessionService.fetchCurrentUser().subscribe((email: string) => {
@@ -39,9 +42,20 @@ export class HomePage implements OnInit {
       email: this.currentEmail,
       content: inputMessage
     };
-    console.log('contentMessage', contentMessage);
     this.apiService.CreateMessage(contentMessage).then(data => {
       console.log(data);
+    });
+
+    this.apiService.OnCreateMessageListener.subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.apiService.OnCreateMessageListener.subscribe((evt) => {
+        console.log(evt);
+      });
     });
   }
 }
