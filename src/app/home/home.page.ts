@@ -9,7 +9,7 @@ import { SessionService } from '../service/session.service';
 export class HomePage {
 
   chatMessage;
-  currentUserId: string;
+  currentEmail: string;
   messages: { id: string, email: string, content: string };
 
   constructor(

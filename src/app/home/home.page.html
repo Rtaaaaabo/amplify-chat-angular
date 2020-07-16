@@ -16,7 +16,7 @@
     <ion-row *ngFor="let msg of messages">
       <ion-col
         size="9"
-        *ngIf="currentUserId !== msg.id"
+        *ngIf="currentEmail !== msg.email"
         class="message other-message"
       >
         <b>ユーザー名</b><br />
@@ -30,7 +30,7 @@
       <ion-col
         offset="3"
         size="9"
-        *ngIf="currentUserId === msg.id"
+        *ngIf="currentEmail === msg.email"
         class="message my-message"
       >
         <b>ユーザー名</b><br />
