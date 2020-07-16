@@ -19,11 +19,11 @@
         *ngIf="currentEmail !== msg.email"
         class="message other-message"
       >
-        <b>ユーザー名</b><br />
-        <span> {{ msg.reply }} </span><br />
+        <!-- <b>{{msg.email}}</b><br /> -->
+        <span> {{ msg.content }} </span><br />
         <div class="time" text-right>
           <br />
-          送信日時
+          {{msg.createdAt | date:'yyyy/MM/dd'}}
         </div>
       </ion-col>
 
@@ -33,11 +33,11 @@
         *ngIf="currentEmail === msg.email"
         class="message my-message"
       >
-        <b>ユーザー名</b><br />
-        <span> {{ msg.reply }} </span><br />
+        <!-- <b>{{msg.email}}</b><br /> -->
+        <span> {{ msg.content }} </span><br />
         <div class="time" text-right>
           <br />
-          送信日時
+          {{msg.createdAt | date:'yyyy/MM/dd hh:mm'}}
         </div>
       </ion-col>
     </ion-row>
