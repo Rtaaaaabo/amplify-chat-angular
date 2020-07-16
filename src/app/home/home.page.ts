@@ -1,7 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { SessionService } from '../service/session.service';
 import { IonContent } from '@ionic/angular';
-import createMessage from '../graphql/mutation/createMessage';
 import { APIService } from '../../app/API.service';
 import { v4 as uuid } from 'uuid';
 
