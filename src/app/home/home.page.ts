@@ -8,11 +8,19 @@ import { SessionService } from '../service/session.service';
 })
 export class HomePage {
 
+  chatMessage;
+  currentUserId: string;
+  messages: { id: string, email: string, content: string };
+
   constructor(
     private sessionService: SessionService,
   ) { }
 
   onSignOut() {
     this.sessionService.signout();
+  }
+
+  sendChatMessage() {
+    console.log('sendChatMessage');
   }
 }
