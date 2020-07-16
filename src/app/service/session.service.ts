@@ -4,6 +4,7 @@ import { Observable, from, BehaviorSubject, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { InterfaceUser } from '../interface/interface-user';
+import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,7 @@ export class SessionService {
     const username = value.userName;
     const email = value.email;
     const password = value.password;
+    console.log(value);
     return from(Auth.signUp({
       username,
       password,
@@ -48,5 +50,10 @@ export class SessionService {
     return from(Auth.signIn(email, password)).pipe(
       tap(() => this.loggedIn.next(true))
     );
+  }
+
+  // チェック Confirm Number
+  confirmSignup(userName, code): Observable<any> {
+    return from(Auth.confirmSignUp(userName, code));
   }
 }

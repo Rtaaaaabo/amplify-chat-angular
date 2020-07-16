@@ -6,7 +6,8 @@ import { environment } from './environments/environment';
 // Amplifyについて
 import PubSub from '@aws-amplify/pubsub';
 import API from '@aws-amplify/api';
-import awsconfig from './aws-exports';
+import awsmobile from './aws-exports';
+import { Auth } from 'aws-amplify';
 
 if (environment.production) {
   enableProdMode();
@@ -15,5 +16,6 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 
-API.configure(awsconfig);
-PubSub.configure(awsconfig);
+API.configure(awsmobile);
+PubSub.configure(awsmobile);
+Auth.configure(awsmobile);

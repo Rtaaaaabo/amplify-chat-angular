@@ -4,16 +4,16 @@
 import { Injectable } from "@angular/core";
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { GraphQLResult } from "@aws-amplify/api/lib/types";
-import * as Observable from "zen-observable";
+import { Observable } from "zen-observable-ts";
 
 export type CreateMessageInput = {
   id?: string | null;
-  username: string;
-  content: string;
+  email: string;
+  content?: string | null;
 };
 
 export type ModelMessageConditionInput = {
-  username?: ModelStringInput | null;
+  email?: ModelStringInput | null;
   content?: ModelStringInput | null;
   and?: Array<ModelMessageConditionInput | null> | null;
   or?: Array<ModelMessageConditionInput | null> | null;
@@ -61,7 +61,7 @@ export type ModelSizeInput = {
 
 export type UpdateMessageInput = {
   id: string;
-  username?: string | null;
+  email?: string | null;
   content?: string | null;
 };
 
@@ -71,7 +71,7 @@ export type DeleteMessageInput = {
 
 export type ModelMessageFilterInput = {
   id?: ModelIDInput | null;
-  username?: ModelStringInput | null;
+  email?: ModelStringInput | null;
   content?: ModelStringInput | null;
   and?: Array<ModelMessageFilterInput | null> | null;
   or?: Array<ModelMessageFilterInput | null> | null;
@@ -97,29 +97,37 @@ export type ModelIDInput = {
 export type CreateMessageMutation = {
   __typename: "Message";
   id: string;
-  username: string;
-  content: string;
+  email: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type UpdateMessageMutation = {
   __typename: "Message";
   id: string;
-  username: string;
-  content: string;
+  email: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type DeleteMessageMutation = {
   __typename: "Message";
   id: string;
-  username: string;
-  content: string;
+  email: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type GetMessageQuery = {
   __typename: "Message";
   id: string;
-  username: string;
-  content: string;
+  email: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type ListMessagesQuery = {
@@ -127,8 +135,10 @@ export type ListMessagesQuery = {
   items: Array<{
     __typename: "Message";
     id: string;
-    username: string;
-    content: string;
+    email: string;
+    content: string | null;
+    createdAt: string;
+    updatedAt: string;
   } | null> | null;
   nextToken: string | null;
 };
@@ -136,22 +146,28 @@ export type ListMessagesQuery = {
 export type OnCreateMessageSubscription = {
   __typename: "Message";
   id: string;
-  username: string;
-  content: string;
+  email: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnUpdateMessageSubscription = {
   __typename: "Message";
   id: string;
-  username: string;
-  content: string;
+  email: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OnDeleteMessageSubscription = {
   __typename: "Message";
   id: string;
-  username: string;
-  content: string;
+  email: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 @Injectable({
@@ -166,8 +182,10 @@ export class APIService {
         createMessage(input: $input, condition: $condition) {
           __typename
           id
-          username
+          email
           content
+          createdAt
+          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -189,8 +207,10 @@ export class APIService {
         updateMessage(input: $input, condition: $condition) {
           __typename
           id
-          username
+          email
           content
+          createdAt
+          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -212,8 +232,10 @@ export class APIService {
         deleteMessage(input: $input, condition: $condition) {
           __typename
           id
-          username
+          email
           content
+          createdAt
+          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -232,8 +254,10 @@ export class APIService {
         getMessage(id: $id) {
           __typename
           id
-          username
+          email
           content
+          createdAt
+          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -255,8 +279,10 @@ export class APIService {
           items {
             __typename
             id
-            username
+            email
             content
+            createdAt
+            updatedAt
           }
           nextToken
         }
@@ -284,8 +310,10 @@ export class APIService {
         onCreateMessage {
           __typename
           id
-          username
+          email
           content
+          createdAt
+          updatedAt
         }
       }`
     )
@@ -299,8 +327,10 @@ export class APIService {
         onUpdateMessage {
           __typename
           id
-          username
+          email
           content
+          createdAt
+          updatedAt
         }
       }`
     )
@@ -314,8 +344,10 @@ export class APIService {
         onDeleteMessage {
           __typename
           id
-          username
+          email
           content
+          createdAt
+          updatedAt
         }
       }`
     )

@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>confirm-signup</ion-title>
+    <ion-title>新規ユーザーの確認</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="confirmForm">
+    <ion-item>
+      <ion-item>
+        <ion-label position="stacked">確認コード</ion-label>
+        <ion-input required type="text" formControlName="confirmNumber">
+        </ion-input>
+      </ion-item>
+    </ion-item>
+    <ion-button type="submit" (click)="confirmSignUp()" expand="block"
+      >確認</ion-button
+    >
+  </form>
 </ion-content>

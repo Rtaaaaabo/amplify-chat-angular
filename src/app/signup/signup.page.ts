@@ -32,6 +32,8 @@ export class SignupPage implements OnInit {
         userName: value.userName
       }
     };
-    this.sessionService.entryUserSignUp(value).pipe(tap(() => this.router.navigate(['/signup-confirm'], navigationExtra))).subscribe();
+    this.sessionService.entryUserSignUp(value).pipe(
+      tap(() => this.router.navigate(['/confirm-signup'], navigationExtra))
+    ).subscribe();
   }
 }

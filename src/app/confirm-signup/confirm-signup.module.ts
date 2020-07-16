@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { ConfirmSignupPageRoutingModule } from './confirm-signup-routing.module';
+
 
 import { ConfirmSignupPage } from './confirm-signup.page';
 
@@ -12,9 +13,10 @@ import { ConfirmSignupPage } from './confirm-signup.page';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     ConfirmSignupPageRoutingModule
   ],
   declarations: [ConfirmSignupPage]
 })
-export class ConfirmSignupPageModule {}
+export class ConfirmSignupPageModule { }

@@ -2,8 +2,10 @@
 query GetMessage($id: ID!) {
   getMessage(id: $id) {
     id
-    username
+    email
     content
+    createdAt
+    updatedAt
   }
 }
 query ListMessages(
@@ -14,8 +16,10 @@ query ListMessages(
   listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      username
+      email
       content
+      createdAt
+      updatedAt
     }
     nextToken
   }

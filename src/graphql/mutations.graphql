@@ -5,8 +5,10 @@ mutation CreateMessage(
 ) {
   createMessage(input: $input, condition: $condition) {
     id
-    username
+    email
     content
+    createdAt
+    updatedAt
   }
 }
 mutation UpdateMessage(
@@ -15,8 +17,10 @@ mutation UpdateMessage(
 ) {
   updateMessage(input: $input, condition: $condition) {
     id
-    username
+    email
     content
+    createdAt
+    updatedAt
   }
 }
 mutation DeleteMessage(
@@ -25,7 +29,9 @@ mutation DeleteMessage(
 ) {
   deleteMessage(input: $input, condition: $condition) {
     id
-    username
+    email
     content
+    createdAt
+    updatedAt
   }
 }
