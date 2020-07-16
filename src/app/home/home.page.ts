@@ -1,6 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { SessionService } from '../service/session.service';
-import { AmplifyService } from '../service/amplify.service';
 import { IonContent } from '@ionic/angular';
 import createMessage from '../graphql/mutation/createMessage';
 import { APIService } from '../../app/API.service';
@@ -21,7 +20,6 @@ export class HomePage implements OnInit {
 
   constructor(
     private sessionService: SessionService,
-    private amplifyService: AmplifyService,
     private apiService: APIService,
   ) { }
 
