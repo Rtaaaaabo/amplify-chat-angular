@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SessionService } from '../service/session.service';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { SessionService } from '../service/session.service';
 })
 export class HomePage {
 
+  @ViewChild(IonContent, { static: false }) content: IonContent;
   chatMessage;
   currentUserId: string;
   messages: { id: string, email: string, content: string };
@@ -21,6 +23,10 @@ export class HomePage {
   }
 
   sendChatMessage() {
-    console.log('sendChatMessage');
+    let inputMessage = this.chatMessage;
+    setTimeout(() => {
+      this.content.scrollToBottom(200);
+      this.chatMessage = '';
+    })
   }
 }
