@@ -60,4 +60,8 @@ export class SessionService {
       this.router.navigate(['/login']);
     });
   }
+
+  fetchCurrentUser(): Observable<string> {
+    return from(Auth.currentAuthenticatedUser()).pipe(map((result) => result.attributes.email));
+  }
 }

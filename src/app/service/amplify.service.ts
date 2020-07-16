@@ -22,7 +22,8 @@ export class AmplifyService {
     this.amplifyClient = client;
   }
 
-  hc() {
+  amplifyAuth() {
+    console.log('amplifyAuth');
     return this.amplifyClient.hydrated();
   }
 }
