@@ -3,7 +3,7 @@ import { SessionService } from '../service/session.service';
 import { IonContent, Platform } from '@ionic/angular';
 import { APIService } from '../../app/API.service';
 import { v4 as uuid } from 'uuid';
-import { Message, responseCreateMessageListener } from '../interface/message';
+import { Message } from '../interface/message';
 
 @Component({
   selector: 'app-home',
@@ -29,9 +29,8 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.sessionService.fetchCurrentUser().subscribe((email: string) => {
       this.currentEmail = email;
-      this.apiService.ListMessages().then(data => {
+      this.apiService.ListMessages().then((data) => {
         this.messages = data.items;
-        console.log(this.messages);
       });
     });
   }
@@ -47,7 +46,9 @@ export class HomePage implements OnInit {
       email: this.currentEmail,
       content: inputMessage
     };
-    this.apiService.CreateMessage(contentMessage).then();
+    this.apiService.CreateMessage(contentMessage).then(() => {
+      this.chatMessage = '';
+    });
   }
 
   initializeApp() {

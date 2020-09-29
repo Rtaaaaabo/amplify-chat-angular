@@ -25,8 +25,7 @@ export class LoginPage implements OnInit {
 
   onLogin() {
     const value = this.loginForm.value;
-    this.sessionService.signIn(value.email, value.password).subscribe((signInResult) => {
-      console.log(signInResult);
+    this.sessionService.signIn(value.email, value.password).subscribe(() => {
       this.router.navigate(['/home']);
     });
   }

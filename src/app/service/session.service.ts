@@ -4,7 +4,6 @@ import { Observable, from, BehaviorSubject, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { InterfaceUser } from '../interface/interface-user';
-import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
